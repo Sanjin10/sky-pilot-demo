@@ -8,3 +8,4 @@ node_modules/
 
 # Shopify CLI
 shopify.theme.toml
+.shopify
