@@ -4,107 +4,118 @@
  * docs: https://tailwindcss.com/docs/configuration
  * default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
-const path = require('path')
-let plugin = require('tailwindcss/plugin')
+const path = require("path");
+let plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: [
-    './layout/*.liquid',
-    './sections/*.liquid',
-    './snippets/*.liquid',
-    './templates/*.liquid',
-    './src/**/*.{js,jsx,ts,tsx}'
+    "./layout/*.liquid",
+    "./sections/*.liquid",
+    "./snippets/*.liquid",
+    "./templates/*.liquid",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  safelist: [
-    'skip-to-content-link'
-  ],
+  safelist: ["skip-to-content-link"],
   theme: {
     container: {
       center: true,
-      // padding: {
-      //   DEFAULT: '1rem',
-      //   sm: '2rem',
-      // },
+      padding: {
+        DEFAULT: "2rem",
+        lg: "6rem",
+      },
       screens: {
         sm: `640px`,
         md: `768px`,
         lg: `1024px`,
         xl: `1280px`,
-        '2xl': `calc(1536px + 4rem)`,
+        "2xl": `1560px`,
       },
     },
     screens: {
-      sm: '640px',
+      sm: "640px",
       // => @media (min-width: 640px) { ... }
-      md: '768px',
+      md: "768px",
       // => @media (min-width: 768px) { ... }
-      lg: '1024px',
+      lg: "1024px",
       // => @media (min-width: 1024px) { ... }
-      xl: '1280px',
+      xl: "1280px",
       // => @media (min-width: 1280px) { ... }
-      '2xl': '1536px',
+      "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
       fontFamily: {
-        'open-sans': ['"Open Sans"', 'sans-serif'],
+        "open-sans": ['"Satoshi Variable"', "sans-serif"],
       },
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: 'none',
-            color: 'var(--color-neutral-400)',
+            maxWidth: "none",
+            color: "var(--color-neutral-400)",
             iframe: {
-              width: '100%',
-              height: '100%',
-              aspectRatio: '16/9'
+              width: "100%",
+              height: "100%",
+              aspectRatio: "16/9",
             },
             a: {
-              color: 'var(--color-secondary-500)',
-              '&:hover': {
-                color: 'var(--color-secondary-200)',
+              color: "var(--color-secondary-500)",
+              "&:hover": {
+                color: "var(--color-secondary-200)",
               },
             },
           },
         },
       },
       colors: {
-        'cloud-burst': {
-          DEFAULT: '#252A59',
-          50: '#7179C4',
-          100: '#636CBE',
-          200: '#4953AF',
-          300: '#3D4593',
-          400: '#313876',
-          500: '#252A59',
-          600: '#151731',
-          700: '#04050A',
-          800: '#000000',
-          900: '#000000',
+        "base-colors": {
+          DEFAULT: "#2D2D2E",
+          100: "#FAFAFA",
+          200: "#F4F6F7",
+          300: "EFF0F1",
+          400: "E8EAEA",
+          500: "#D9DDDD",
+          600: "#2D2D2E",
         },
-        woodland: {
-          DEFAULT: '#595425',
-          50: '#C4BC71',
-          100: '#BEB563',
-          200: '#AFA649',
-          300: '#938A3D',
-          400: '#766F31',
-          500: '#595425',
-          600: '#312F15',
-          700: '#0A0904',
-          800: '#000000',
-          900: '#000000',
-          950: '#000000',
-        }
-      }
+        "paper-blue": {
+          DEFAULT: "#E1EBF2",
+        },
+        "sky-blue": {
+          DEFAULT: "#4AA0E7",
+        },
+        "dawn-blue": {
+          DEFAULT: "#1A4B73",
+        },
+        "night-sky": {
+          DEFAULT: "#283548",
+        },
+      },
+      keyframes: {
+        animationHorizotal: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        animationHorizontalReverse: {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        horizontal: "animationHorizotal 15s linear infinite",
+        horizontalReverse: "animationHorizontalReverse 40s linear infinite",
+        horizontalFast: "animationHorizotal 20s linear infinite",
+        horizontalSlow: "animationHorizotal 80s linear infinite",
+      },
+      boxShadow: {
+        file_shadow: "7.5px 32px 20px 0 rgba(0, 0, 0, 0.07)",
+      },
     },
   },
   plugins: [
-    require('@tailwindcss/container-queries'),
-    require('@tailwindcss/typography')(),
+    require("@tailwindcss/container-queries"),
+    require("@tailwindcss/typography")(),
     plugin(function ({ addVariant }) {
-      addVariant('scrolled', '.scrolled &'),
-        addVariant('mobile-menu-visible', '.mobile-menu-visible &')
+      addVariant("scrolled", ".scrolled &"),
+        addVariant("mobile-menu-visible", ".mobile-menu-visible &");
     }),
   ],
-}
+};

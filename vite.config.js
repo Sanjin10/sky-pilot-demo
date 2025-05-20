@@ -1,11 +1,11 @@
-import shopify from 'vite-plugin-shopify'
-import cleanup from '@by-association-only/vite-plugin-shopify-clean'
-import pageReload from 'vite-plugin-page-reload'
-import basicSsl from '@vitejs/plugin-basic-ssl'
+import shopify from "vite-plugin-shopify";
+import cleanup from "@by-association-only/vite-plugin-shopify-clean";
+import pageReload from "vite-plugin-page-reload";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 
-import fs from 'fs';
-import path from 'path';
-import chokidar from 'chokidar';
+import fs from "fs";
+import path from "path";
+import chokidar from "chokidar";
 
 function copyFile(src, dest) {
   fs.mkdirSync(path.dirname(dest), { recursive: true });
@@ -26,32 +26,32 @@ function copyPublicToAssetsPlugin() {
   let config;
 
   return {
-    name: 'vite-plugin-copy-public',
-    apply: 'serve', // Only apply this during development
+    name: "vite-plugin-copy-public",
+    apply: "serve", // Only apply this during development
     configResolved(resolvedConfig) {
       config = resolvedConfig;
     },
     buildStart() {
-      const publicDir = path.resolve(config.root, 'public');
-      const assetsDir = path.resolve(config.root, 'assets');
+      const publicDir = path.resolve(config.root, "public");
+      const assetsDir = path.resolve(config.root, "assets");
 
       const watcher = chokidar.watch(publicDir, { ignoreInitial: true });
 
-      watcher.on('add', (filePath) => {
+      watcher.on("add", (filePath) => {
         const relativePath = path.relative(publicDir, filePath);
         const destPath = path.resolve(assetsDir, relativePath);
         console.log(`Copying new file: ${relativePath}`);
         copyFile(filePath, destPath);
       });
 
-      watcher.on('change', (filePath) => {
+      watcher.on("change", (filePath) => {
         const relativePath = path.relative(publicDir, filePath);
         const destPath = path.resolve(assetsDir, relativePath);
         console.log(`Updating file: ${relativePath}`);
         copyFile(filePath, destPath);
       });
 
-      watcher.on('unlink', (filePath) => {
+      watcher.on("unlink", (filePath) => {
         const relativePath = path.relative(publicDir, filePath);
         const destPath = path.resolve(assetsDir, relativePath);
         console.log(`Removing file: ${relativePath}`);
@@ -64,22 +64,22 @@ function copyPublicToAssetsPlugin() {
 export default {
   clearScreen: false,
   server: {
-    host: '127.0.0.1',
+    host: "127.0.0.1",
     https: true,
     port: 3000,
-    hmr: true
+    hmr: true,
   },
-  publicDir: 'public',
+  publicDir: "public",
   build: {
     manifest: false,
     emptyOutDir: false,
     rollupOptions: {
       output: {
-        entryFileNames: '[name].[hash].min.js',
-        chunkFileNames: '[name].[hash].min.js',
-        assetFileNames: '[name].[hash].min[extname]',
+        entryFileNames: "[name].[hash].min.js",
+        chunkFileNames: "[name].[hash].min.js",
+        assetFileNames: "[name].[hash].min[extname]",
       },
-    }
+    },
   },
   plugins: [
     basicSsl(),
@@ -87,23 +87,24 @@ export default {
     copyPublicToAssetsPlugin(),
     shopify({
       sourceCodeDir: "src",
-      entrypointsDir: 'src/entrypoints',
-      additionalEntrypoints: [
-        'src/js/prodify/index.ts'
-      ],
+      entrypointsDir: "src/entrypoints",
+      additionalEntrypoints: ["src/js/prodify/index.ts"],
       snippetFile: "vite.liquid",
     }),
-    pageReload('/tmp/theme.update', {
-      delay: 2000
+    pageReload("/tmp/theme.update", {
+      delay: 2000,
     }),
     {
-      name: 'vite-plugin-liquid-tailwind-refresh',
+      name: "vite-plugin-liquid-tailwind-refresh",
       handleHotUpdate(ctx) {
-        if (ctx.file.endsWith('.liquid')) {
+        if (ctx.file.endsWith(".liquid")) {
           // Filter out the liquid module to prevent a full refresh
-          return [...ctx.modules[0]?.importers ?? [], ...ctx.modules.slice(1)]
+          return [
+            ...(ctx.modules[0]?.importers ?? []),
+            ...ctx.modules.slice(1),
+          ];
         }
-      }
-    }
+      },
+    },
   ],
-}
+};

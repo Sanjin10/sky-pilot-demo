@@ -1,0 +1,122 @@
+{% schema %}
+{
+  "name": "Banner with Info Blocks",
+  "settings": [
+    {
+      "type": "color",
+      "label": "Background Color",
+      "id": "background_color",
+      "default": "#f8fcff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "color",
+          "label": "Background Color",
+          "id": "background_color",
+          "default": "#E1EBF2"
+        },
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "title",
+          "default": "Let Us Show Off"
+        },
+        {
+          "type": "text",
+          "label": "Description",
+          "id": "description",
+          "default": "Looking to sell digital products on your Shopify store? You're at the right place. We will show you around and demonstrate some of the abilities of our app. Welcome to our store, feel free to shop around!"
+        },
+        {
+          "type": "text",
+          "label": "Button Text",
+          "id": "button_text",
+          "default": "Install App"
+        },
+        {
+          "type": "url",
+          "label": "Button URL",
+          "id": "button_url"
+        },
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        }
+      ]
+    },
+    {
+      "type": "logos",
+      "name": "Logos",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Logo",
+          "id": "logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner with Info Blocks"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="section-block-padding" style="background: {{ section.settings.background_color }};">
+  {% comment %} Banner {% endcomment %}
+  <div class="container lg:mb-10">
+    {% for block in section.blocks %}
+      {% if block.type == 'banner' %}
+        <div
+          class="w-full p-5 lg:p-14 rounded-2xl lg:rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10"
+          style="background: {{ block.settings.background_color }};"
+        >
+          <div>
+            <h2 class="text-night-sky font-bold mb-4 lg:mb-6">{{ block.settings.title }}</h2>
+            <p class="text-lg lg:text-2xl text-base-colors mb-4 lg:mb-6">{{ block.settings.description }}</p>
+            <a href="{{ block.settings.button_url }}" class="btn">{{ block.settings.button_text }}</a>
+          </div>
+          <div>
+            {{ block.settings.image | image_url: width: 620 | image_tag: class: 'w-full h-full object-cover' }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% comment %} Logos {% endcomment %}
+  <div class="lg:mb-10 py-8">
+    <div class="max-lg:hidden container grid grid-cols-5 gap-8">
+      {% for block in section.blocks %}
+        {% if block.type == 'logos' %}
+          {{ block.settings.logo | image_url: width: 620 | image_tag: class: 'w-full h-full object-contain' }}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="lg:hidden">
+      <div class="slider horizontal flex w-screen">
+        <div class="wrapper-scroll flex min-w-full flex-none justify-around">
+          {% for block in section.blocks %}
+            {% if block.type == 'logos' %}
+              {{ block.settings.logo | image_url: width: 240 | image_tag: class: 'w-44 mx-3' }}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="wrapper-scroll flex min-w-full flex-none justify-around">
+          {% for block in section.blocks %}
+            {% if block.type == 'logos' %}
+              {{ block.settings.logo | image_url: width: 240 | image_tag: class: 'w-44 mx-3' }}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

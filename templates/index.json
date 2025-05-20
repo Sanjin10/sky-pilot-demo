@@ -1,19 +1,167 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-index",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_8nGW3z": {
+      "type": "hero",
+      "blocks": {
+        "cloud_nnyHY4": {
+          "type": "cloud",
+          "settings": {
+            "cloud_image": "shopify://shop_images/12e0ea289c55c8032c04e56df0d3da3d22da24ac_1.png",
+            "x_position": "left"
+          }
+        },
+        "cloud_w66qdD": {
+          "type": "cloud",
+          "settings": {
+            "cloud_image": "shopify://shop_images/130d87f43ea2cd98c07ba8d717d7538d1d0640d6_1.png",
+            "x_position": "right"
+          }
+        },
+        "file_block_aEYkUc": {
+          "type": "file_block",
+          "settings": {
+            "name": "Audio",
+            "icon": "shopify://shop_images/Group_1321317936_1.png"
+          }
+        },
+        "file_block_Vq7bgr": {
+          "type": "file_block",
+          "settings": {
+            "name": "EPUBs",
+            "icon": "shopify://shop_images/Group_1321317937.png"
+          }
+        },
+        "file_block_7atgdd": {
+          "type": "file_block",
+          "settings": {
+            "name": "Video",
+            "icon": "shopify://shop_images/Group_1321317938.png"
+          }
+        },
+        "file_block_XDBVWW": {
+          "type": "file_block",
+          "settings": {
+            "name": "PDF",
+            "icon": "shopify://shop_images/Group_1321317939.png"
+          }
+        },
+        "file_block_AXjdEE": {
+          "type": "file_block",
+          "settings": {
+            "name": "Audio",
+            "icon": "shopify://shop_images/Group_1321317940.png"
+          }
+        }
+      },
+      "block_order": [
+        "cloud_nnyHY4",
+        "cloud_w66qdD",
+        "file_block_aEYkUc",
+        "file_block_Vq7bgr",
+        "file_block_7atgdd",
+        "file_block_XDBVWW",
+        "file_block_AXjdEE"
+      ],
+      "name": "Hero Section",
       "settings": {
+        "starting_gradient_color": "#e2eaf3",
+        "ending_gradient_color": "#6cb1e9",
+        "heading": "The most comprehensive solution for selling <strong>digital products</strong> on Shopify",
+        "button_text": "Start your free 7 day trial",
+        "button_url": "",
+        "arrow_image": "shopify://shop_images/Group_1321317941.png"
       }
     },
-    "featured-product-grid": {
-      "type": "featured-product-grid",
+    "banner_with_blocks_Pmr4PE": {
+      "type": "banner-with-blocks",
+      "blocks": {
+        "banner_xwLaTf": {
+          "type": "banner",
+          "settings": {
+            "background_color": "#e1ebf2",
+            "title": "Let Us Show Off",
+            "description": "Looking to sell digital products on your Shopify store? You're at the right place. We will show you around and demonstrate some of the abilities of our app. Welcome to our store, feel free to shop around!",
+            "button_text": "Install App",
+            "button_url": "",
+            "image": "shopify://shop_images/Group_1321317877.png"
+          }
+        },
+        "logos_VehCT8": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/3f4655586f6de0972479bd4a47f389fc601d3871.png"
+          }
+        },
+        "logos_8gE97V": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/401da34f6961e937825d39eae46e6c5b8f8e44e0.png"
+          }
+        },
+        "logos_aj3MqY": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/69124a8e506aeffe86f8c1fd137b9d9c4f6dd3bf.png"
+          }
+        },
+        "logos_6zmhqM": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/e9296658a76adca947b9341d20769a8db783d3a7.png"
+          }
+        },
+        "logos_aPtPgm": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/e586405d7e93133ca7b4e6b4e41614843c58bc17.png"
+          }
+        }
+      },
+      "block_order": [
+        "banner_xwLaTf",
+        "logos_VehCT8",
+        "logos_8gE97V",
+        "logos_aj3MqY",
+        "logos_6zmhqM",
+        "logos_aPtPgm"
+      ],
+      "name": "Banner with Info Blocks",
       "settings": {
-        "featured_collection": "homepage-collection"
+        "background_color": "#f8fcff"
+      }
+    },
+    "2_banners_G6hdLN": {
+      "type": "2-banners",
+      "name": "Title with Banners",
+      "settings": {
+        "title": "The Most Comprehensive <strong>Digital Downloads App</strong>",
+        "background_color": "#f8fcff",
+        "description": "Buy the products below to see the flexibility offered by Sky Pilot",
+        "metaobject_list": [
+          "emma-montrose-the-alchemy-of-shadows",
+          "brutal-30-weight-loss-program"
+        ]
       }
     }
   },
-  "order": [ 
+  "order": [
     "main",
-    "featured-product-grid"
+    "hero_8nGW3z",
+    "banner_with_blocks_Pmr4PE",
+    "2_banners_G6hdLN"
   ]
 }

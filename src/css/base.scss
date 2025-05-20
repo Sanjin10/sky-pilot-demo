@@ -1,0 +1,17 @@
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  .h1 {
+    @apply text-[34px] md:text-[40px] lg:text-[48px] 2xl:text-[64px] leading-[120%] tracking-[0.5px];
+  }
+  h2 {
+    @apply text-[26px] md:text-[32px] lg:text-[40px] 2xl:text-[48px] leading-[120%] tracking-[0.5px];
+  }
+  h3 {
+    font-size: theme("fontSize.2xl");
+    font-weight: theme("fontWeight.bold");
+  }
+}

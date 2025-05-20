@@ -1,0 +1,44 @@
+@layer components {
+  .btn {
+    @apply py-4 px-8 rounded-xl inline-block bg-dawn-blue text-white text-lg lg:text-xl font-medium text-center;
+  }
+  .section-block-padding {
+    @apply py-8 sm:py-16 2xl:py-20;
+  }
+
+  .section-top-padding {
+    @apply pt-8 sm:pt-16 2xl:pt-20;
+  }
+
+  .section-bottom-padding {
+    @apply pb-8 sm:pb-16 2xl:pb-20;
+  }
+
+  .slider {
+    @apply overflow-hidden;
+
+    &.horizontal {
+      .wrapper-scroll {
+        @apply animate-horizontal;
+      }
+    }
+
+    &.horizontal-reverse {
+      .wrapper-scroll {
+        @apply animate-horizontalReverse;
+      }
+    }
+
+    &.horizontal-fast {
+      .wrapper-scroll {
+        @apply animate-horizontalFast;
+      }
+    }
+
+    &.horizontal-slow {
+      .wrapper-scroll {
+        @apply animate-horizontalSlow;
+      }
+    }
+  }
+}
