@@ -36,7 +36,7 @@
 {% endschema %}
 
 {% assign metaobjects = section.settings.metaobject_list %}
-<section class="section-block-padding" style="background-color: {{ section.settings.background_color }};">
+<div class="section-block-padding" style="background-color: {{ section.settings.background_color }};">
   <div class="container">
     <h2 class="text-center text-night-sky mb-4">{{ section.settings.title }}</h2>
     <p class="text-night-sky text-center font-normal text-lg lg:text-3xl mb-8">{{ section.settings.description }}</p>
@@ -69,4 +69,4 @@
       {% endfor %}
     </div>
   </div>
-</section>
+</div>

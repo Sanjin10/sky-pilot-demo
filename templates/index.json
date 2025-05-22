@@ -156,12 +156,49 @@
           "brutal-30-weight-loss-program"
         ]
       }
+    },
+    "banner_aFHNXQ": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "background_image": "shopify://shop_images/Group_1321317943_1.png",
+        "banner_text": "Join thousands of Shopify merchants using the best app for digital downloads and streaming",
+        "btn_url": "",
+        "btn_text": "Start your free 7 day trial"
+      }
+    },
+    "banner_w_featued_4bp8B6": {
+      "type": "banner-w-featued",
+      "blocks": {
+        "banner_AJgwh3": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Graphics_1.png",
+            "title": "We support ALL digital formats currently existing",
+            "button_text": "Test our claim",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_AJgwh3"
+      ],
+      "name": "Banner w/ featured",
+      "settings": {
+        "metaobject_list": [
+          "cooking-family-meals-course",
+          "elevate-sound-productions",
+          "sid-meiers-civilization-vi-0"
+        ]
+      }
     }
   },
   "order": [
     "main",
     "hero_8nGW3z",
     "banner_with_blocks_Pmr4PE",
-    "2_banners_G6hdLN"
+    "2_banners_G6hdLN",
+    "banner_aFHNXQ",
+    "banner_w_featued_4bp8B6"
   ]
 }

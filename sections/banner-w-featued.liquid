@@ -1,0 +1,128 @@
+{% schema %}
+{
+  "name": "Banner w/ featured",
+  "settings": [
+    {
+      "type": "metaobject_list",
+      "label": "Metaobjects",
+      "id": "metaobject_list",
+      "metaobject_type": "banner"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Background Image",
+          "id": "background_image"
+        },
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        },
+        {
+          "type": "text",
+          "label": "Banner Title",
+          "id": "title",
+          "default": "We support <strong>ALL digital formats</strong> currently existing"
+        },
+        {
+          "type": "text",
+          "label": "Button Text",
+          "id": "button_text",
+          "default": "Test our claim"
+        },
+        {
+          "type": "url",
+          "label": "Button URL",
+          "id": "button_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner w/ featured"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign metaobjects = section.settings.metaobject_list %}
+<div class="section-block-padding">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8 lg:mb-12">
+      {% for metaobject in metaobjects %}
+        {% unless metaobject.featured == true %}
+          <div class="rounded-3xl overflow-hidden shadow-sm bg-[#EFF0F1]">
+            <div class="h-80 lg:h-[500px]">
+              {{ metaobject.image | image_url: width: 860 | image_tag: class: 'w-full h-full object-cover' }}
+            </div>
+            <div class="p-5 lg:p-7">
+              <h3 class="text-2xl lg:text-4xl text-night-sky font-medium max-w-[500px] mb-3">{{ metaobject.title }}</h3>
+              <p class="text-base lg:text-lg text-[#586272] mb-3">{{ metaobject.price | money }}</p>
+              {% if metaobject.duration %}
+                <div class="mb-4">
+                  <p class="text-sm text-[#808895] mb-2">Duration</p>
+                  <div class="flex items-center gap-2">
+                    <div class="bg-[#586272] py-[6px] px-4 text-sm text-white rounded-full border border-transparent">
+                      5 Day Rental
+                    </div>
+                    <div class="bg-transparent py-[6px] px-4 text-sm text-[#687280] rounded-full border border-[#687280]">
+                      Unlimited Access
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+              <p class="text-sm lg:text-base text-[#858D99] mb-4">{{ metaobject.description }}</p>
+              {% if metaobject.features_included != blank %}
+                <div class="mb-5">
+                  <p class="text-base lg:text-lg text-[#858D99] mb-2">Includes</p>
+                  <div>
+                    {% for feature in metaobject.features_included.value %}
+                      <p class="text-sm lg:text-base text-[#858D99]">- {{ feature }}</p>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+              <a href="{{ metaobject.url }}" class="btn">Access Digital Content</a>
+            </div>
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+    {% for block in section.blocks %}
+      {% if block.type == 'banner' %}
+        <div class="bg-[#E7F3FC] overflow-hidden p-5 lg:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center mb-8 lg:mb-12">
+          {{ block.settings.image | image_url: width: 720 | image_tag: class: 'w-full h-full object-cover' }}
+          <div class="max-lg:flex flex-col items-center">
+            <h4 class="text-night-sky text-3xl lg:text-4xl mb-4 max-lg:text-center">
+              {{ block.settings.title }}
+            </h4>
+            <a href="{{ block.settings.button_url }}" class="btn">{{ block.settings.button_text }}</a>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    {% for metaobject in metaobjects %}
+      {% if metaobject.featured == true %}
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center overflow-auto rounded-3xl shadow-sm bg-[#EFF0F1]">
+          <div class="h-80 lg:h-[600px]">
+            {{ metaobject.image | image_url: width: 860 | image_tag: class: 'w-full h-full object-cover' }}
+          </div>
+          <div class="p-5 lg:p-10">
+            <h3 class="text-2xl lg:text-4xl text-night-sky font-medium max-w-[500px] mb-4">{{ metaobject.title }}</h3>
+            <div class="mb-3">Rating</div>
+            <p class="text-sm lg:text-base text-[#858D99] mb-4 max-w-[580px]">{{ metaobject.description }}</p>
+            <a href="{{ metaobject.url }}" class="btn">Access Digital Content</a>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

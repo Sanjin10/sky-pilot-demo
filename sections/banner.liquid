@@ -1,0 +1,45 @@
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Background Image",
+      "id": "background_image"
+    },
+    {
+      "type": "text",
+      "label": "Banner Text",
+      "id": "banner_text",
+      "default": "Join thousands of Shopify merchants using the best app for <strong>digital downloads and streaming</strong>"
+    },
+    {
+      "type": "url",
+      "label": "Button URL",
+      "id": "btn_url"
+    },
+    {
+      "type": "text",
+      "label": "Button Text",
+      "id": "btn_text",
+      "default": "Start your free 7 day trial"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}
+<section class="relative py-12 lg:py-16">
+  {{
+    section.settings.background_image
+    | image_url: width: 1920
+    | image_tag: class: 'absolute inset-0 w-full h-full object-cover'
+  }}
+  <div class="container flex flex-col items-center gap-8 relative z-10">
+    <h2 class="text-night-sky text-center max-w-[1100px] mx-auto">{{ section.settings.banner_text }}</h2>
+    <a href="{{ section.settings.btn_url }}" class="btn">{{ section.settings.btn_text }}</a>
+  </div>
+</section>
