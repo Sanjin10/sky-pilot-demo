@@ -102,7 +102,7 @@ module.exports = {
       animation: {
         horizontal: "animationHorizotal 15s linear infinite",
         horizontalReverse: "animationHorizontalReverse 40s linear infinite",
-        horizontalFast: "animationHorizotal 20s linear infinite",
+        horizontalNormal: "animationHorizotal 30s linear infinite",
         horizontalSlow: "animationHorizotal 80s linear infinite",
       },
       boxShadow: {

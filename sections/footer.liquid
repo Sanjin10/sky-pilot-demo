@@ -1,29 +1,46 @@
 {% schema %}
-  {
-    "name": "footer",
-    "class": "footer",
-    "tag": "footer",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "t:sections.footer.settings.paragraph"
-      }
-    ]
-  }
+{
+  "name": "footer",
+  "class": "footer",
+  "tag": "footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    },
+    {
+      "type": "image_picker",
+      "label": "Icon",
+      "id": "icon"
+    }
+  ]
+}
 {% endschema %}
 
-<div class="px-6 md:px-8 py-12">
-  <div class="container">
-    <div>
+<div class="py-6 lg:py-10 bg-paper-blue relative">
+  <div class="container max-lg:flex-col flex justify-center items-center lg:gap-6 relative">
+    {{
+      section.settings.logo
+      | image_url: width: 240
+      | image_tag: class: 'w-32 lg:w-48 max-lg:mb-8 lg:absolute left-8 lg:left-24 top-1/2 lg:-translate-y-1/2'
+    }}
+    <div class="flex items-center lg:justify-between gap-5 xl:gap-8 max-lg:flex-col">
       {% for link in linklists.footer.links %}
-        <a href="{{ link.url }}">
+        <a
+          target="_blank"
+          href="{{ link.url }}"
+          class="text-base lg:text-lg max-lg:text-center hover:text-black  text-[#687280] transition-all"
+        >
           {{ link.title }}
         </a>
       {% endfor %}
     </div>
-  
-    <small>
-      &copy; {{ "now" | date: "%Y" }} Slayed Starter Theme
-    </small>
+    <div></div>
   </div>
+  {{
+    section.settings.icon
+    | image_url: width: 80
+    | image_tag: class: 'w-10 h-10 lg:w-16 lg:h-16 absolute bottom-0 right-6'
+  }}
 </div>

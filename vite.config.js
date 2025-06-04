@@ -67,6 +67,7 @@ export default {
     host: "127.0.0.1",
     https: true,
     port: 3000,
+    cors: true,
     hmr: true,
   },
   publicDir: "public",

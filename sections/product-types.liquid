@@ -6,7 +6,7 @@
       "type": "text",
       "label": "Title",
       "id": "title",
-      "default": "Versatile<br><strong>Product Types</strong>"
+      "default": "Versatile <br> <strong>Product Types</strong>"
     },
     {
       "type": "text",
@@ -29,7 +29,23 @@
     {
       "type": "type_block",
       "name": "Product Type Block",
-      "settings": []
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Icon",
+          "id": "icon"
+        },
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "title"
+        },
+        {
+          "type": "text",
+          "label": "Descritpion",
+          "id": "description"
+        }
+      ]
     }
   ],
   "presets": [
@@ -42,17 +58,67 @@
 
 <div class="section-block-padding">
   <div class="container">
-    <div class="lg:grid grid-cols-2 gap-7">
-      <div class="bg-paper-blue rounded-[20px] lg:grid grid-cols-product_type items-center col-span-2 lg:pt-6">
-        <div class="max-lg:p-8 lg:py-16 lg:ps-16 max-lg:mb-6">
+    <div class="">
+      <div class="bg-paper-blue rounded-[20px] lg:grid grid-cols-product_type items-center col-span-2 lg:pt-6 mb-7">
+        <div class="max-lg:p-8 lg:py-16 lg:ps-16">
+          {% if section.settings.icon %}
+            {{ section.settings.icon | image_url: width: 96 | image_tag: class: 'w-8 h-8 lg:h-12 lg:w-12 mb-3' }}
+          {% endif %}
           <h2 class="text-night-sky mb-4">{{ section.settings.title }}</h2>
-          <p class="text-2xl text-base-colors-600 font-light">{{ section.settings.description }}</p>
+          <p class="text-lg lg:text-2xl text-base-colors-600 font-light">{{ section.settings.description }}</p>
         </div>
-        <div class="max-lg:max-h-52 overflow-hidden">
+        <div class="max-lg:max-h-60 overflow-hidden max-lg:ps-2">
           {% if section.settings.image %}
             {{ section.settings.image | image_url: width: 960 | image_tag: class: 'w-full h-full object-cover' }}
           {% endif %}
         </div>
+      </div>
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-7 max-lg:hidden">
+        {% for block in section.blocks %}
+          {% if block.type == 'type_block' %}
+            <div class="bg-paper-blue rounded-[20px] overflow-hidden p-6 flex items-center gap-6">
+              <div
+                class="rounded-[20px] flex items-center justify-center bg-white bg-opacity-45 h-40 aspect-square"
+              >
+                {{ block.settings.icon | image_url: width: 96 | image_tag: class: 'max-h-16' }}
+              </div>
+              <div>
+                <h4 class="text-3xl font-bold mb-3 text-night-sky">{{ block.settings.title }}</h4>
+                <p class="text-[#353535] text-base">{{ block.settings.description }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden">
+    <div class="slider horizontal-normal flex w-screen">
+      <div class="wrapper-scroll flex min-w-full flex-none justify-around">
+        {% for block in section.blocks %}
+          {% if block.type == 'type_block' %}
+            <div class="w-96 overflow-hidden bg-paper-blue rounded-2xl p-5 mx-4">
+              <div class="w-20 h-20 rounded-2xl bg-white bg-opacity-45 flex items-center justify-center mb-5">
+                {{ block.settings.icon | image_url: width: 80 | image_tag: class: 'max-h-10' }}
+              </div>
+              <h4 class="text-lg text-night-sky font-bold mb-3">{{ block.settings.title }}</h4>
+              <p class="text-[#353535] text-sm">{{ block.settings.description }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="wrapper-scroll flex min-w-full flex-none justify-around">
+        {% for block in section.blocks %}
+          {% if block.type == 'type_block' %}
+            <div class="w-96 overflow-hidden bg-paper-blue rounded-2xl p-5 mx-4">
+              <div class="w-20 h-20 rounded-2xl bg-white bg-opacity-45 flex items-center justify-center mb-5">
+                {{ block.settings.icon | image_url: width: 80 | image_tag: class: 'max-h-10' }}
+              </div>
+              <h4 class="text-lg text-night-sky font-bold mb-3">{{ block.settings.title }}</h4>
+              <p class="text-[#353535] text-sm">{{ block.settings.description }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
