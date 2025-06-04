@@ -162,9 +162,12 @@
       "name": "Banner",
       "settings": {
         "background_image": "shopify://shop_images/Group_1321317943_1.png",
-        "banner_text": "Join thousands of Shopify merchants using the best app for digital downloads and streaming",
+        "banner_text": "Join thousands of Shopify merchants using the best app for <strong>digital downloads and streaming</strong>",
         "btn_url": "",
-        "btn_text": "Start your free 7 day trial"
+        "btn_text": "Start your free 7 day trial",
+        "background_color": "",
+        "text_color": "#283548",
+        "xl_padding": true
       }
     },
     "banner_w_featued_4bp8B6": {
@@ -191,6 +194,27 @@
           "sid-meiers-civilization-vi-0"
         ]
       }
+    },
+    "banner_QbVzYw": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "banner_text": "We have 11 years of experience in delivering <strong>Digital Content On Shopify!</strong>",
+        "btn_url": "",
+        "btn_text": "",
+        "background_color": "#1a4b73",
+        "text_color": "#ffffff",
+        "xl_padding": false
+      }
+    },
+    "product_types_rbBUR4": {
+      "type": "product-types",
+      "name": "Product Types",
+      "settings": {
+        "title": "Versatile<br><strong>Product Types</strong>",
+        "description": "No matter what digital product or service you're offering, SkyPilot has you covered.",
+        "image": "shopify://shop_images/Group_1321317943_2.png"
+      }
     }
   },
   "order": [
@@ -199,6 +223,8 @@
     "banner_with_blocks_Pmr4PE",
     "2_banners_G6hdLN",
     "banner_aFHNXQ",
-    "banner_w_featued_4bp8B6"
+    "banner_w_featued_4bp8B6",
+    "banner_QbVzYw",
+    "product_types_rbBUR4"
   ]
 }

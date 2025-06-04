@@ -108,6 +108,9 @@ module.exports = {
       boxShadow: {
         file_shadow: "7.5px 32px 20px 0 rgba(0, 0, 0, 0.07)",
       },
+      gridTemplateColumns: {
+        product_type: "1fr 1.4fr",
+      },
     },
   },
   plugins: [

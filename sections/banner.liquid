@@ -23,6 +23,23 @@
       "label": "Button Text",
       "id": "btn_text",
       "default": "Start your free 7 day trial"
+    },
+    {
+      "type": "color",
+      "label": "Background Color",
+      "id": "background_color"
+    },
+    {
+      "type": "color",
+      "label": "Text Color",
+      "id": "text_color",
+      "default": "#283548"
+    },
+    {
+      "type": "checkbox",
+      "label": "XL Padding",
+      "id": "xl_padding",
+      "default": true
     }
   ],
   "presets": [
@@ -32,14 +49,33 @@
   ]
 }
 {% endschema %}
-<section class="relative py-12 lg:py-16">
-  {{
-    section.settings.background_image
-    | image_url: width: 1920
-    | image_tag: class: 'absolute inset-0 w-full h-full object-cover'
-  }}
-  <div class="container flex flex-col items-center gap-8 relative z-10">
-    <h2 class="text-night-sky text-center max-w-[1100px] mx-auto">{{ section.settings.banner_text }}</h2>
-    <a href="{{ section.settings.btn_url }}" class="btn">{{ section.settings.btn_text }}</a>
+<section
+  class="relative {% if section.settings.xl_padding %} py-12 lg:py-16 {% else %} py-8 lg:py-12 {% endif %}"
+  {% if section.settings.background_color %}
+    style="background-color: {{ section.settings.background_color }};"
+  {% endif %}
+>
+  {% if section.settings.background_image %}
+    {{
+      section.settings.background_image
+      | image_url: width: 1920
+      | image_tag: class: 'absolute inset-0 w-full h-full object-cover'
+    }}
+  {% endif %}
+  <div
+    class="container flex flex-col items-center {%  if section.settings.btn_text != blank %} gap-8 {% endif %} relative z-10"
+    style="color: {{ section.settings.text_color }};"
+  >
+    <h2 class="text-center max-w-[1100px] font-light mx-auto">{{ section.settings.banner_text }}</h2>
+    {% if section.settings.btn_text != blank %}
+      <a href="{{ section.settings.btn_url }}" class="btn">{{ section.settings.btn_text }}</a>
+    {% endif %}
   </div>
 </section>
+
+<style>
+  b,
+  strong {
+    font-weight: 700;
+  }
+</style>

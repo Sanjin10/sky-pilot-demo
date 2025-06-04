@@ -1,0 +1,59 @@
+{% schema %}
+{
+  "name": "Product Types",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title",
+      "default": "Versatile<br><strong>Product Types</strong>"
+    },
+    {
+      "type": "text",
+      "label": "Description",
+      "id": "description",
+      "default": "No matter what digital product or service you're offering, SkyPilot has you covered."
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "image"
+    },
+    {
+      "type": "image_picker",
+      "label": "Icon",
+      "id": "icon"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "type_block",
+      "name": "Product Type Block",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Types"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="section-block-padding">
+  <div class="container">
+    <div class="lg:grid grid-cols-2 gap-7">
+      <div class="bg-paper-blue rounded-[20px] lg:grid grid-cols-product_type items-center col-span-2 lg:pt-6">
+        <div class="max-lg:p-8 lg:py-16 lg:ps-16 max-lg:mb-6">
+          <h2 class="text-night-sky mb-4">{{ section.settings.title }}</h2>
+          <p class="text-2xl text-base-colors-600 font-light">{{ section.settings.description }}</p>
+        </div>
+        <div class="max-lg:max-h-52 overflow-hidden">
+          {% if section.settings.image %}
+            {{ section.settings.image | image_url: width: 960 | image_tag: class: 'w-full h-full object-cover' }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
