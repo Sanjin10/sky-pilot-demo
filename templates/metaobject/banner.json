@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "use_case_hero_FNKECf": {
+      "type": "use-case-hero",
+      "blocks": {
+        "card_3y83Te": {
+          "type": "card",
+          "settings": {
+            "title": "🛍️ Merchant’s corner",
+            "description": "<p>Selling and delivering videos directly through your Shopify store is a game-changer for your digital business. Sky Pilot supports all formats and video lengths, and with integrations like Vimeo, Wistia, and Sprout, you can choose your preferred video platform to deliver content to your customers.</p>",
+            "bg_color": "#f4f6f7"
+          }
+        },
+        "card_YiztAX": {
+          "type": "card",
+          "settings": {
+            "title": "🎬 Applicable feature",
+            "description": "<p>PDF/Video stamping: Protect your digital products with PDF/Video Stamping, a powerful feature designed to safeguard your hard work. By automatically adding unique identifiers—like customer names, emails, or order numbers—to your files, you can deter unauthorized distribution and trace any leaks back to the source. It is very easy to set up within the app, and can help you enhance security and protect your digital property. <a href=\"/pages/cooking-course\" title=\"Cooking Course\">Find out more.</a></p>",
+            "bg_color": "#eef5fa"
+          }
+        }
+      },
+      "block_order": [
+        "card_3y83Te",
+        "card_YiztAX"
+      ],
+      "name": "Use Case Hero",
+      "settings": {}
+    },
+    "use_case_also_like_EXah9D": {
+      "type": "use-case-also-like",
+      "name": "Use Case Also Like",
+      "settings": {
+        "title": "You May Also Like",
+        "metaobjects": [
+          "sid-meiers-civilization-vi-0",
+          "elevate-sound-productions"
+        ]
+      }
+    }
+  },
+  "order": [
+    "use_case_hero_FNKECf",
+    "use_case_also_like_EXah9D"
+  ]
+}

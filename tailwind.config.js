@@ -78,6 +78,9 @@ module.exports = {
         },
         "paper-blue": {
           DEFAULT: "#E1EBF2",
+          100: "#98A2B3",
+          200: "#586272",
+          300: "#D0D5DD"
         },
         "sky-blue": {
           DEFAULT: "#4AA0E7",
@@ -87,6 +90,7 @@ module.exports = {
         },
         "night-sky": {
           DEFAULT: "#283548",
+          100: "#1D2939"
         },
       },
       keyframes: {

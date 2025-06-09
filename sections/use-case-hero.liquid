@@ -1,0 +1,89 @@
+{% schema %}
+  {
+    "name": "Use Case Hero",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          }, {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Use Case Hero"
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="container section-block-padding">
+  <a href="/" class="flex gap-1 items-center group w-fit mb-10">
+    <span class="group-hover:-translate-x-2 transition-all">{% render 'gray-arrow' %}</span>
+    <p class="text-paper-blue-100 text-[18px] font-medium">Back</p>
+  </a>
+  <div class="flex max-xl:flex-col gap-10">
+    <div class="shrink-0">
+      {{ metaobject.image | image_url: width: 740 | image_tag: class: 'rounded-3xl xl:w-[600px] w-full' }}
+    </div>
+    <div class="flex flex-col pt-6 gap-8">
+      <h2 class="2xl:!text-[40px]">{{ metaobject.title }}</h2>
+      <div class="flex gap-2">{{ metaobject.review_stars | image_url: width: 136 | image_tag: class: 'object-contain' }}<p class="text-[18px] font-medium text-night-sky-100">{{ metaobject.review_number }}&nbsp;reviews</p>
+      </div>
+      <p class="text-[32px] font-medium text-paper-blue-200">{{ metaobject.price | money }}</p>
+      <div class="h-px w-full bg-paper-blue-300"></div>
+      {% if metaobject.duration %}
+        <div class="mb-4">
+          <p class="text-sm text-[#808895] mb-2">Duration</p>
+          <div class="flex items-center gap-2">
+            <div class="bg-[#586272] py-[6px] px-4 text-sm text-white rounded-full border border-transparent">
+              5 Day Rental
+            </div>
+            <div class="bg-transparent py-[6px] px-4 text-sm text-[#687280] rounded-full border border-[#687280]">
+              Unlimited Access
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      <div>
+        <p class="text-night-sky-100 text-base">{{ metaobject.description }}
+          <a href="/" class="text-base text-dawn-blue block w-fit">Read more...</a>
+        </p>
+      </div>
+      {% if metaobject.features_included != blank %}
+        <div class="mb-5">
+          <p class="text-base lg:text-lg text-night-sky mb-2">Includes:</p>
+          <div>
+            {% for feature in metaobject.features_included.value %}
+              <p class="text-sm lg:text-base text-[#4E4E50]">- {{ feature }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      <div>
+        {% for block in section.blocks %}
+          <div class="rounded-2xl p-6 {%  unless forloop.last %}mb-5{% endunless %}" style="background-color: {{ block.settings.bg_color }};">
+            <div class="flex items-center gap-2 mb-2">
+              <p class="text-base lg:text-lg font-medium text-night-sky">{{ block.settings.title | upcase }}</p>
+            </div>
+            <div class="[&>p]:text-[#4E4E50] [&>p]:text-base [&>p]:lg:text-lg [&>p]:font-normal [&>p>a]:text-[#2A4299] [&>p>a]:underline">{{ block.settings.description }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

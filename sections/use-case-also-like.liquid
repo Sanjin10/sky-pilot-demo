@@ -1,0 +1,56 @@
+{% schema %}
+{
+    "name": "Use Case Also Like",
+    "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "You May Also Like"
+            },
+            {
+                "type": "metaobject_list",
+                "id": "metaobjects",
+                "label": "Metaobjects",
+                "metaobject_type": "banner"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Use Case Also Like"
+            }
+        ]
+}
+{% endschema %}
+
+{% assign metaobjects = section.settings.metaobjects %}
+<div class="container section-block-padding">
+    <h2 class="text-[26px] leading-[100%] tracking-[-0.5px] text-night-sky font-medium mb-12">{{ section.settings.title }}</h2>
+    <div class="grid grid-cols-1 column-count gap-5 w-fit">
+        {% for metaobject in metaobjects %}
+            <div class="rounded-2xl overflow-hidden flex flex-col w-full sm:max-w-[382px] h-full">
+                {{ metaobject.image |  image_url: width: 382, height: 350 | image_tag: class: 'max-sm:w-full' }}
+                <div class="bg-[#EFF0F1] p-6 h-full flex flex-col justify-between">
+                    <p class="text-lg md:text-[26px] leading-[100%] tracking-[-0.5px] text-night-sky font-medium mb-3">{{ metaobject.title }}</p>
+                    {% if metaobject.also_like_rating == true %}
+                        <div class="flex gap-2 items-center mb-3">{{ metaobject.also_like_rating_stars |  image_url: width: 88 |  image_tag }}
+                            <p class="text-sm md:text-base text-paper-blue-200 font-medium">Rating On Steam</p>
+                        </div>
+                        {% else %}
+                        <p class="text-sm md:text-base font-medium text-paper-blue-200 mb-3">{{ metaobject.price | money }}</p>
+                    {% endif %}
+                    <p class="text-sm font-medium text-[#858D99] mb-3">{{ metaobject.shorter_description }}</p>
+                    <a href="{{ metaobject.url }}" class="btn w-fit max-md:text-base">Access Digital Content</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    @media screen and (min-width: 640px) {
+        .column-count {
+          grid-template-columns: repeat({{ section.settings.metaobjects.count }}, minmax(0, 1fr));
+        }
+    }
+</style>
