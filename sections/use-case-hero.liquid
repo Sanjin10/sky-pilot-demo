@@ -1,7 +1,14 @@
 {% schema %}
   {
     "name": "Use Case Hero",
-    "settings": [],
+    "settings": [
+      {
+                "type": "metaobject_list",
+                "id": "metaobjects",
+                "label": "Metaobjects",
+                "metaobject_type": "banner_file"
+            }
+    ],
     "blocks": [
       {
         "type": "card",
@@ -36,7 +43,7 @@
     <span class="group-hover:-translate-x-2 transition-all">{% render 'gray-arrow' %}</span>
     <p class="text-paper-blue-100 text-[18px] font-medium">Back</p>
   </a>
-  <div class="flex max-xl:flex-col gap-10">
+  <div class="flex max-xl:flex-col gap-10 mb-8">
     <div class="shrink-0">
       {{ metaobject.image | image_url: width: 740 | image_tag: class: 'rounded-3xl xl:w-[600px] w-full' }}
     </div>
@@ -76,14 +83,38 @@
       {% endif %}
       <div>
         {% for block in section.blocks %}
-          <div class="rounded-2xl p-6 {%  unless forloop.last %}mb-5{% endunless %}" style="background-color: {{ block.settings.bg_color }};">
-            <div class="flex items-center gap-2 mb-2">
-              <p class="text-base lg:text-lg font-medium text-night-sky">{{ block.settings.title | upcase }}</p>
+            <div class="rounded-2xl p-6 {%  unless forloop.last %}mb-5{% endunless %}" style="background-color: {{ block.settings.bg_color }};">
+              <div class="flex items-center gap-2 mb-2">
+                <p class="text-base lg:text-lg font-medium text-night-sky">{{ block.settings.title | upcase }}</p>
+              </div>
+              <div class="[&>p]:text-[#4E4E50] [&>p]:text-base [&>p]:lg:text-lg [&>p]:font-normal [&>p>a]:text-[#2A4299] [&>p>a]:underline">{{ block.settings.description }}</div>
             </div>
-            <div class="[&>p]:text-[#4E4E50] [&>p]:text-base [&>p]:lg:text-lg [&>p]:font-normal [&>p>a]:text-[#2A4299] [&>p>a]:underline">{{ block.settings.description }}</div>
-          </div>
         {% endfor %}
       </div>
+    </div>
+  </div>
+  <div class="h-px w-full bg-paper-blue-300 mb-8"></div>
+  <div>
+    <h3 class="text-night-sky mb-5 font-medium">Files</h3>
+    <div class="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:w-fit lg:max-xl:w-full gap-6">
+      {% assign metaobjects = section.settings.metaobjects %}
+        {% for metaobject in metaobjects %}
+          <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6">
+            {{ metaobject.file_image | image_url: width: 333 | image_tag: class: 'mb-4 max-md:w-full' }}
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-night-sky text-base md:text-lg font-medium">{{ metaobject.file_title }}</p>
+              <p class="text-night-sky text-base md:text-lg font-light">({{ metaobject.file_size }})</p>
+            </div>
+            {% if metaobject.with_play_button == true %}
+              <div class="flex max-lg:flex-col justify-between items-center gap-4">
+                <a href="{{ metaobject.file_play_url }}" class="btn flex items-center justify-center gap-2 max-lg:w-full">{% render 'play-white' %}Play</a>
+                <a href="{{ metaobject.file_download_url }}" class="btn border-[1.5px] !border-night-sky !bg-white !text-night-sky flex items-center justify-center gap-2 max-lg:w-full">{% render 'download-dark' %}Download</a>
+              </div>
+            {% else %}
+              <a href="{{ metaobject.file_download_url }}" class="btn flex items-center justify-center gap-2 w-full">{% render 'download-white' %}Download</a>
+            {% endif %}
+          </div>
+          {% endfor %}
     </div>
   </div>
 </div>

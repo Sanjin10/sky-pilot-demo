@@ -26,7 +26,7 @@
 {% assign metaobjects = section.settings.metaobjects %}
 <div class="container section-block-padding">
     <h2 class="text-[26px] leading-[100%] tracking-[-0.5px] text-night-sky font-medium mb-12">{{ section.settings.title }}</h2>
-    <div class="grid grid-cols-1 column-count gap-5 w-fit">
+    <div class="grid grid-cols-1 md:grid-cols-2 column-count gap-5 w-fit lg:max-xl:w-full justify-items-center max-md:mx-auto">
         {% for metaobject in metaobjects %}
             <div class="rounded-2xl overflow-hidden flex flex-col w-full sm:max-w-[382px] h-full">
                 {{ metaobject.image |  image_url: width: 382, height: 350 | image_tag: class: 'max-sm:w-full' }}
@@ -48,7 +48,7 @@
 </div>
 
 <style>
-    @media screen and (min-width: 640px) {
+    @media screen and (min-width: 1560px) {
         .column-count {
           grid-template-columns: repeat({{ section.settings.metaobjects.count }}, minmax(0, 1fr));
         }

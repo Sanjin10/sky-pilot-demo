@@ -1,0 +1,116 @@
+{% schema %}
+{
+    "name": "Use Case Reviews",
+    "settings": [
+           {
+            "type": "metaobject_list",
+            "id": "top_reviews",
+            "label": "Top Marquee Reviews",
+            "metaobject_type": "banner_top_marquee_review"
+           },
+           {
+            "type": "metaobject_list",
+            "id": "bottom_reviews",
+            "label": "Bottom Marquee Reviews",
+            "metaobject_type": "banner_bottom_marquee_review"
+           }
+        ],
+        "presets": [
+            {
+                "name": "Use Case Reviews"
+            }
+        ]
+}
+{% endschema %}
+
+<div style="background-color: #f0f5f9;">
+    <div class="section-block-padding">
+        <h2 class="text-night-sky-100 font-bold text-5xl text-center mb-12 container">Reviews & Rating</h2>
+        <div class="slider horizontal w-screen flex gap-1 mb-6">
+            {% assign top_reviews = section.settings.top_reviews %}
+            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+                {% for top_review in top_reviews %}
+                    <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex gap-2">
+                                {{ top_review.review_avatar | image_url: width: 40 |  image_tag }}
+                                <div>
+                                    <p class="text-base text-night-sky-100 font-normal">{{ top_review.review_name }}</p>
+                                    <p class="text-sm text-[#667085] font-medium">{{ top_review.review_date }}</p>
+                                </div>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    {% render 'review-star' %}
+                                    <p class="text-night-sky-100 text-base font-normal">{{ top_review.review_rating }}</p>
+                                </div>
+                        </div>
+                        <p class="text-xs sm:text-base text-[#475467] font-normal max-w-[300px] sm:max-w-[467px]">{{ top_review.review_text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+                {% for top_review in top_reviews %}
+                    <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex gap-2">
+                                {{ top_review.review_avatar | image_url: width: 40 |  image_tag }}
+                                <div>
+                                    <p class="text-base text-night-sky-100 font-normal">{{ top_review.review_name }}</p>
+                                    <p class="text-sm text-[#667085] font-medium">{{ top_review.review_date }}</p>
+                                </div>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    {% render 'review-star' %}
+                                    <p class="text-night-sky-100 text-base font-normal">{{ top_review.review_rating }}</p>
+                                </div>
+                        </div>
+                        <p class="text-xs sm:text-base text-[#475467] font-normal max-w-[300px] sm:max-w-[467px]">{{ top_review.review_text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="slider horizontal-reverse w-screen flex gap-1">
+            {% assign bottom_reviews = section.settings.bottom_reviews %}
+            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+                {% for bottom_review in bottom_reviews %}
+                    <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex gap-2">
+                                {{ bottom_review.review_avatar | image_url: width: 40 |  image_tag }}
+                                <div>
+                                    <p class="text-base text-night-sky-100 font-normal">{{ bottom_review.review_name }}</p>
+                                    <p class="text-sm text-[#667085] font-medium">{{ bottom_review.review_date }}</p>
+                                </div>
+                            </div>
+                                <div class="flex gap-2 items-center">
+                                    {% render 'review-star' %}
+                                    <p class="text-night-sky-100 text-base font-normal">{{ bottom_review.review_rating }}</p>
+                                </div>
+                        </div>
+                        <p class="text-xs sm:text-base text-[#475467] font-normal max-w-[300px] sm:max-w-[467px]">{{ bottom_review.review_text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+                {% for bottom_review in bottom_reviews %}
+                    <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex gap-2">
+                                {{ bottom_review.review_avatar | image_url: width: 40 |  image_tag }}
+                                <div>
+                                    <p class="text-base text-night-sky-100 font-normal">{{ bottom_review.review_name }}</p>
+                                    <p class="text-sm text-[#667085] font-medium">{{ bottom_review.review_date }}</p>
+                                </div>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    {% render 'review-star' %}
+                                    <p class="text-night-sky-100 text-base font-normal">{{ bottom_review.review_rating }}</p>
+                                </div>
+                        </div>
+                        <p class="text-xs sm:text-base text-[#475467] font-normal max-w-[300px] sm:max-w-[467px]">{{ bottom_review.review_text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

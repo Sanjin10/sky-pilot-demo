@@ -34,22 +34,30 @@
         "card_YiztAX"
       ],
       "name": "Use Case Hero",
-      "settings": {}
+      "settings": {
+        "metaobjects": "{{ metaobject.metaobject_files.value }}"
+      }
     },
     "use_case_also_like_EXah9D": {
       "type": "use-case-also-like",
       "name": "Use Case Also Like",
       "settings": {
         "title": "You May Also Like",
-        "metaobjects": [
-          "sid-meiers-civilization-vi-0",
-          "elevate-sound-productions"
-        ]
+        "metaobjects": "{{ metaobject.metaobjects_for_also_like_section.value }}"
+      }
+    },
+    "use_case_reviews_pjhCaA": {
+      "type": "use-case-reviews",
+      "name": "Use Case Reviews",
+      "settings": {
+        "top_reviews": "{{ metaobject.top_marquee_reviews.value }}",
+        "bottom_reviews": []
       }
     }
   },
   "order": [
     "use_case_hero_FNKECf",
-    "use_case_also_like_EXah9D"
+    "use_case_also_like_EXah9D",
+    "use_case_reviews_pjhCaA"
   ]
 }
