@@ -23,18 +23,16 @@
       }
     }
 
+    &.horizontal-normal {
+      .wrapper-scroll {
+        @apply animate-horizontalNormal;
+      }
+    }
     &.horizontal-reverse {
       .wrapper-scroll {
         @apply animate-horizontalReverse;
       }
     }
-
-    &.horizontal-fast {
-      .wrapper-scroll {
-        @apply animate-horizontalFast;
-      }
-    }
-
     &.horizontal-slow {
       .wrapper-scroll {
         @apply animate-horizontalSlow;
