@@ -212,51 +212,27 @@
       "blocks": {
         "type_block_yDfhqe": {
           "type": "type_block",
-          "settings": {
-            "icon": "shopify://shop_images/Group_1171278523.svg",
-            "title": "Digital Media Assets",
-            "description": "Music, Videos, Images, PDFs, etc.. You name it. Sky Pilot supports virtually all digital file types,letting you easily package up and sell anything regardless of your industry or niche."
-          }
+          "settings": {}
         },
         "type_block_jFYQcE": {
           "type": "type_block",
-          "settings": {
-            "icon": "shopify://shop_images/Group_1171278524.svg",
-            "title": "Software Downloads & License Keys",
-            "description": "Instantly generate, issue, and manage download codes and license keys for software with pricing and terms that are on your terms, ensuring a smooth experience for both you and your customers."
-          }
+          "settings": {}
         },
         "type_block_zmgmyd": {
           "type": "type_block",
-          "settings": {
-            "icon": "shopify://shop_images/Vector_22.svg",
-            "title": "Bundles",
-            "description": "Sky Pilot let's you go beyond just selling individual products allowing you to package and sell curated collections of various digital products like video files, audio tracks, PDFs, and gaming codes in one. Perfect for delivering even morevalue to your audiences."
-          }
+          "settings": {}
         },
         "type_block_8DkgMH": {
           "type": "type_block",
-          "settings": {
-            "icon": "shopify://shop_images/Group_1171278516.svg",
-            "title": "Streaming",
-            "description": "Sky Pilot supports audio and video streaming of any file size, allowing your customers to stream purchased media in their browsers - with or without the ability to download them as well, keeping you fully in control."
-          }
+          "settings": {}
         },
         "type_block_BUry6j": {
           "type": "type_block",
-          "settings": {
-            "icon": "shopify://shop_images/Group_1321317910.svg",
-            "title": "Courses & Drip Files",
-            "description": "Creating courseware or a series of products you want to release over time? Sky Pilot allows you to set and sell digital files over any duration of time you choose. Perfect for keeping your audiences engaged and excited for more."
-          }
+          "settings": {}
         },
         "type_block_CGNfFV": {
           "type": "type_block",
-          "settings": {
-            "icon": "shopify://shop_images/Group_1171278515.svg",
-            "title": "Subscriptions",
-            "description": "Not only can you sell subscriptions to your customers with Sky Pilot, but you'll also get access to a full suite of subscription management tools and reporting options that'll help you keep that reoccurring revenue coming without unnecessary churn."
-          }
+          "settings": {}
         }
       },
       "block_order": [

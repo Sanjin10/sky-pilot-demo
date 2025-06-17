@@ -5,30 +5,14 @@
       {
                 "type": "metaobject_list",
                 "id": "metaobjects",
-                "label": "Metaobjects",
+                "label": "Files Metaobjects",
                 "metaobject_type": "banner_file"
+            }, {
+              "type": "metaobject_list",
+              "id": "features_list",
+              "label": "Features Metaobjects",
+              "metaobject_type": "banner_feature_card"
             }
-    ],
-    "blocks": [
-      {
-        "type": "card",
-        "name": "Card",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }, {
-            "type": "richtext",
-            "id": "description",
-            "label": "Description"
-          }, {
-            "type": "color",
-            "id": "bg_color",
-            "label": "Background Color"
-          }
-        ]
-      }
     ],
     "presets": [
       {
@@ -82,12 +66,13 @@
         </div>
       {% endif %}
       <div>
-        {% for block in section.blocks %}
-            <div class="rounded-2xl p-6 {%  unless forloop.last %}mb-5{% endunless %}" style="background-color: {{ block.settings.bg_color }};">
+        {% assign feature_card = section.settings.features_list %}
+        {% for feature in feature_card %}
+            <div class="rounded-2xl p-6 {%  unless forloop.last %}mb-5{% endunless %}" style="background-color: {{ feature.background_color }};">
               <div class="flex items-center gap-2 mb-2">
-                <p class="text-base lg:text-lg font-medium text-night-sky">{{ block.settings.title | upcase }}</p>
+                <p class="text-base lg:text-lg font-medium text-night-sky">{{ feature.card_title | upcase }}</p>
               </div>
-              <div class="[&>p]:text-[#4E4E50] [&>p]:text-base [&>p]:lg:text-lg [&>p]:font-normal [&>p>a]:text-[#2A4299] [&>p>a]:underline">{{ block.settings.description }}</div>
+              <div>{{ feature.card_text |  metafield_tag }}</div>
             </div>
         {% endfor %}
       </div>
@@ -107,7 +92,7 @@
             </div>
             {% if metaobject.with_play_button == true %}
               <div class="flex max-lg:flex-col justify-between items-center gap-4">
-                <a href="{{ metaobject.file_play_url }}" class="btn flex items-center justify-center gap-2 max-lg:w-full">{% render 'play-white' %}Play</a>
+                <a href="{{ metaobject.file_play_url }}" target="_blank" class="btn flex items-center justify-center gap-2 max-lg:w-full">{% render 'play-white' %}Play</a>
                 <a href="{{ metaobject.file_download_url }}" class="btn border-[1.5px] !border-night-sky !bg-white !text-night-sky flex items-center justify-center gap-2 max-lg:w-full">{% render 'download-dark' %}Download</a>
               </div>
             {% else %}
@@ -118,3 +103,22 @@
     </div>
   </div>
 </div>
+
+<style>
+  .metafield-rich_text_field > p {
+    color: #4E4E50;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .metafield-rich_text_field > p > a {
+    color: #2A4299;
+    text-decoration: underline;
+  }
+  @media screen and (min-width: 1024px) {
+    .metafield-rich_text_field > p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+</style>

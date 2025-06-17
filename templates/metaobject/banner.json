@@ -35,7 +35,8 @@
       ],
       "name": "Use Case Hero",
       "settings": {
-        "metaobjects": "{{ metaobject.metaobject_files.value }}"
+        "metaobjects": "{{ metaobject.metaobject_files.value }}",
+        "features_list": "{{ metaobject.banner_feature_cards.value }}"
       }
     },
     "use_case_also_like_EXah9D": {
@@ -51,7 +52,7 @@
       "name": "Use Case Reviews",
       "settings": {
         "top_reviews": "{{ metaobject.top_marquee_reviews.value }}",
-        "bottom_reviews": []
+        "bottom_reviews": "{{ metaobject.bottom_marquee_reviews.value }}"
       }
     }
   },

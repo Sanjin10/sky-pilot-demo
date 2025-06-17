@@ -26,9 +26,9 @@
 <div style="background-color: #f0f5f9;">
     <div class="section-block-padding">
         <h2 class="text-night-sky-100 font-bold text-5xl text-center mb-12 container">Reviews & Rating</h2>
-        <div class="slider horizontal w-screen flex gap-1 mb-6">
+        <div class="slider horizontal w-screen flex mb-6">
             {% assign top_reviews = section.settings.top_reviews %}
-            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+            <div class="wrapper-scroll flex min-w-full flex-none justify-around items-center" style="animation-duration: 30s !important;">
                 {% for top_review in top_reviews %}
                     <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
                         <div class="flex justify-between items-center mb-6">
@@ -48,7 +48,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+            <div class="wrapper-scroll flex min-w-full flex-none justify-around items-center" style="animation-duration: 30s !important;">
                 {% for top_review in top_reviews %}
                     <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
                         <div class="flex justify-between items-center mb-6">
@@ -69,9 +69,9 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="slider horizontal-reverse w-screen flex gap-1">
+        <div class="slider horizontal-reverse w-screen flex">
             {% assign bottom_reviews = section.settings.bottom_reviews %}
-            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+            <div class="wrapper-scroll flex min-w-full flex-none justify-around items-center" style="animation-duration: 30s !important;">
                 {% for bottom_review in bottom_reviews %}
                     <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
                         <div class="flex justify-between items-center mb-6">
@@ -91,7 +91,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="wrapper-scroll flex min-w-full flex-none justify-between items-center" style="animation-duration: 30s !important;">
+            <div class="wrapper-scroll flex min-w-full flex-none justify-around items-center" style="animation-duration: 30s !important;">
                 {% for bottom_review in bottom_reviews %}
                     <div class="bg-white border border-[#D0D5DD] rounded-2xl p-6 h-full mx-3">
                         <div class="flex justify-between items-center mb-6">
