@@ -82,7 +82,7 @@
         "ending_gradient_color": "#6cb1e9",
         "heading": "The most comprehensive solution for selling digital products on Shopify",
         "button_text": "Start your free 7 day trial",
-        "button_url": "",
+        "button_url": "https://apps.shopify.com/sky-pilot?utm_source=demo%20store&utm_medium=website&utm_campaign=demo%20store",
         "arrow_image": "shopify://shop_images/Group_1321317941.png"
       }
     },
@@ -96,7 +96,7 @@
             "title": "Let Us Show Off",
             "description": "Looking to sell digital products on your Shopify store? You're at the right place. We will show you around and demonstrate some of the abilities of our app. Welcome to our store, feel free to shop around!",
             "button_text": "Install App",
-            "button_url": "",
+            "button_url": "https://apps.shopify.com/sky-pilot?utm_source=demo%20store&utm_medium=website&utm_campaign=demo%20store",
             "image": "shopify://shop_images/Group_1321317877.png"
           }
         },
@@ -162,8 +162,8 @@
       "name": "Banner",
       "settings": {
         "background_image": "shopify://shop_images/Group_1321317943_1.png",
-        "banner_text": "Join thousands of Shopify merchants using the best app for <strong>digital downloads and streaming</strong>",
-        "btn_url": "",
+        "banner_text": "Join thousands of Shopify merchants using the best app for digital downloads and streaming",
+        "btn_url": "https://apps.shopify.com/sky-pilot?utm_source=demo%20store&utm_medium=website&utm_campaign=demo%20store",
         "btn_text": "Start your free 7 day trial",
         "background_color": "",
         "text_color": "#283548",
@@ -179,7 +179,7 @@
             "image": "shopify://shop_images/Graphics_1.png",
             "title": "We support ALL digital formats currently existing",
             "button_text": "Test our claim",
-            "button_url": ""
+            "button_url": "https://apps.shopify.com/sky-pilot?utm_source=demo%20store&utm_medium=website&utm_campaign=demo%20store"
           }
         }
       },
