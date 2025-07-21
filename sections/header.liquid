@@ -26,7 +26,7 @@
   @wheel.window.throttle.400="event.deltaY > 0 && window.scrollY > $el.offsetHeight ? $store.global.isHeaderVisible = false : $store.global.isHeaderVisible = true"
 >
   <nav class="container flex items-center justify-between max-md:hidden">
-    <a href="/">
+    <a href="/" class="">
       {{ section.settings.logo | image_url: width: 480 | image_tag: class: 'w-48' }}
     </a>
     <ul class="flex items-center gap-10">
@@ -41,7 +41,7 @@
         </li>
       {% endfor %}
     </ul>
-    <a href="/cart">
+    <a href="/cart" class="hidden">
       {% render 'cart-icon' %}
     </a>
   </nav>
@@ -49,7 +49,7 @@
     {% render 'dropdown-icon' %}
     {% render 'close-mobile-menu' %}
     <a href="/">
-      {{ section.settings.logo | image_url: width: 480 | image_tag: class: 'w-32' }}
+      {{ section.settings.logo | image_url: width: 480 | image_tag: class: 'w-32 hidden' }}
     </a>
     <a href="/cart">
       {% render 'cart-icon' %}

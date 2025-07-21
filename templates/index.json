@@ -215,7 +215,7 @@
           "settings": {
             "icon": "shopify://shop_images/Group_1171278523.svg",
             "title": "Digital Media Assets",
-            "description": "Music, Videos, Images, PDFs, etc.. You name it. Sky Pilot supports virtually all digital file types,letting you easily package up and sell anything regardless of your industry or niche."
+            "description": "Music, Videos, Images, PDFs, etc.. You name it. Sky Pilot supports virtually all digital file types, letting you easily package up and sell anything regardless of your industry or niche."
           }
         },
         "type_block_jFYQcE": {
@@ -231,7 +231,7 @@
           "settings": {
             "icon": "shopify://shop_images/Vector_22.svg",
             "title": "Bundles",
-            "description": "Sky Pilot let's you go beyond just selling individual products allowing you to package and sell curated collections of various digital products like video files, audio tracks, PDFs, and gaming codes in one. Perfect for delivering even morevalue to your audiences."
+            "description": "Sky Pilot let's you go beyond just selling individual products allowing you to package and sell curated collections of various digital products like video files, audio tracks, PDFs and gaming codes in one. Perfect for delivering even morevalue to your audiences."
           }
         },
         "type_block_8DkgMH": {
@@ -270,10 +270,54 @@
       "name": "Product Types",
       "settings": {
         "title": "Versatile  Product Types",
-        "description": "No matter what digital product or service you're offering, SkyPilot has you covered.",
+        "description": "No matter what digital product or service you're offering, Sky Pilot has you covered.",
         "image": "shopify://shop_images/Group_1321317943_2.png",
         "icon": "shopify://shop_images/Group_1321317944.svg"
       }
+    },
+    "partner_logos_wh3Yt4": {
+      "type": "partner-logos",
+      "blocks": {
+        "logos_J4D48U": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/accentuate.png"
+          }
+        },
+        "logos_jAR3ni": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/Logomark_Dark_Green_1.png"
+          }
+        },
+        "logos_4y9iLp": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/Hulkapps-shopcircle-logo.svg"
+          }
+        },
+        "logos_WBPRVa": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/Opinew_Shop_Circle.739cef7.svg"
+          }
+        },
+        "logos_knGGQe": {
+          "type": "logos",
+          "settings": {
+            "logo": "shopify://shop_images/Screenshot_2023-10-30_at_14.39.39.png"
+          }
+        }
+      },
+      "block_order": [
+        "logos_J4D48U",
+        "logos_jAR3ni",
+        "logos_4y9iLp",
+        "logos_WBPRVa",
+        "logos_knGGQe"
+      ],
+      "name": "Partner Logos",
+      "settings": {}
     }
   },
   "order": [
@@ -284,6 +328,7 @@
     "banner_aFHNXQ",
     "banner_w_featued_4bp8B6",
     "banner_QbVzYw",
-    "product_types_rbBUR4"
+    "product_types_rbBUR4",
+    "partner_logos_wh3Yt4"
   ]
 }

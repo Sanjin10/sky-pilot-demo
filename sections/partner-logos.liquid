@@ -1,0 +1,53 @@
+{% comment %} Logos {% endcomment %}
+<div class="py-8">
+  <div class="max-lg:hidden container grid grid-cols-5 gap-8">
+    {% for block in section.blocks %}
+      {% if block.type == 'logos' %}
+        {{ block.settings.logo | image_url: width: 620 | image_tag: class: 'w-full h-full object-contain' }}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="lg:hidden">
+    <div class="slider horizontal flex w-screen">
+      <div class="wrapper-scroll flex min-w-full flex-none justify-around">
+        {% for block in section.blocks %}
+          {% if block.type == 'logos' %}
+            {{ block.settings.logo | image_url: width: 240 | image_tag: class: 'w-44 mx-6 object-contain' }}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="wrapper-scroll flex min-w-full flex-none justify-around">
+        {% for block in section.blocks %}
+          {% if block.type == 'logos' %}
+            {{ block.settings.logo | image_url: width: 240 | image_tag: class: 'w-44 mx-6 object-contain' }}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Partner Logos",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logos",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Logo",
+          "id": "logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Logos"
+    }
+  ]
+}
+{% endschema %}
