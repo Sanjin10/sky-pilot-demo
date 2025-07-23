@@ -35,6 +35,9 @@
           <a
             href="{{ link.url }}"
             class="text-base text-night-sky {%  if link.active %} font-medium {% else %} font-normal{% endif %}"
+            {% if link.url contains 'http' %}
+              target="_blank"
+            {% endif %}
           >
             {{- link.title -}}
           </a>
